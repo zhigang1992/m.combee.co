@@ -23,6 +23,7 @@ require.config({
     }
 });
 
-require(['app'], function (App) {
+require(['app', 'helper'], function (App, Helper) {
     App.initialize();
+    Helper.setup();
 });

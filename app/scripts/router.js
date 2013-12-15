@@ -13,7 +13,7 @@ define(['backbone', 'view/login'], function (Backbone, LoginView){
             loginView.render();
         });
         appRouter.on("route:defaultAction", function (){
-            appRouter.navigate("login");
+            appRouter.navigate("/login");
         });
         Backbone.history.start();
     };
