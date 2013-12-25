@@ -1,7 +1,8 @@
-define(['backbone', 'view/login'], function (Backbone, LoginView){
+define(['backbone', 'views/login', 'views/index'], function (Backbone, LoginView, IndexView){
     var AppRouter = Backbone.Router.extend({
         routes: {
             'login': 'showLogin',
+            '': 'index',
             '*action': 'defaultAction'
         }
     });
@@ -11,6 +12,10 @@ define(['backbone', 'view/login'], function (Backbone, LoginView){
         appRouter.on("route:showLogin", function (){
             var loginView = new LoginView();
             loginView.render();
+        });
+        appRouter.on("route:index", function (){
+            var indexView = new IndexView();
+            indexView.render();
         });
         appRouter.on("route:defaultAction", function (){
             appRouter.navigate("/login");
