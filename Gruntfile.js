@@ -53,7 +53,26 @@ module.exports = function (grunt) {
                     base: [
                         '.tmp',
                         '<%= yeoman.app %>'
-                    ]
+                    ],
+                    middleware: function (connect, options) {
+                        var middlewares = [];
+                        var directory = options.directory || options.base[options.base.length - 1];
+                        if (!Array.isArray(options.base)) {
+                            options.base = [options.base];
+                        }
+                        options.base.forEach(function(base) {
+                            // Serve static files.
+                            middlewares.push(connect.static(base));
+                        });
+
+                        // Setup the proxy
+                        middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
+
+                        // Make directory browse-able.
+                        middlewares.push(connect.directory(directory));
+
+                        return middlewares;
+                    }
                 }
             },
             test: {
@@ -71,7 +90,20 @@ module.exports = function (grunt) {
                     base: '<%= yeoman.dist %>',
                     livereload: false
                 }
+            },
+            server: {
+                proxies: [
+                    {
+                        context: '/api/v1',
+                        host: 'combee.co',
+                        port: 80,
+                        https: false,
+                        changeOrigin: true,
+                        xforward: true
+                    }
+                ]
             }
+
         },
         clean: {
             dist: {
@@ -306,6 +338,7 @@ module.exports = function (grunt) {
             'clean:server',
             'concurrent:server',
             'autoprefixer',
+            'configureProxies:server',
             'connect:livereload',
             'watch'
         ]);
