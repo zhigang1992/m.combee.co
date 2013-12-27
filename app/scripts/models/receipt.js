@@ -3,8 +3,11 @@ define(['backbone'], function(Backbone) {
 		title: function() {
 			return this.get('post').title;
 		},
+		author: function() {
+			return this.get('post').author;
+		},
 		avatar: function() {
-			return this.get('post').author.avatar;
+			return this.author().avatar;
 		},
 		mobileAvatar: function() {
 			var es = this.avatar().split('/');

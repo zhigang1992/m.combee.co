@@ -1,8 +1,29 @@
+
 <div class="receipts">
 	<% _.each(receipts, function(receipt) { %>
+
 		<div class="receipt">
-			<span><img src="<%= receipt.mobileAvatar() %>" alt=""></span>
-			<span><%= receipt.title() %></span>
+			<a href="#user/<%= receipt.author().id %>" class="avatar">
+				<img src="<%= receipt.mobileAvatar() %>" alt="">
+			</a>
+			<span class="details">
+				<div>
+					<a href="#user/<%= receipt.author().id %>">
+						<%= receipt.author().name %>
+					</a>
+					<span class="title"> <%= receipt.title() %> </span>
+				</div>
+				<div class="receipt-body">
+					<%= receipt.get('post').body %>
+				</div>
+				<div>
+					<% _.each(receipt.get('organizations'), function(orga) { %>
+						<a class="originazation" href="#organizations/<%= orga.id %>">
+							<%= orga.name %>
+						</a>
+					<%	}); %>	
+				</div>
+			</span>
 		</div>
 	<%	}); %>	
 </div>

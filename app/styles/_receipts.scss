@@ -3,5 +3,22 @@
 	padding: 7px;
 	.receipt {
 		background-color: #fff;
+		border-bottom: 1px solid #E2E2E2;
+		.avatar {
+			display: inline-block;
+			width: 35px;
+			vertical-align: top;
+			height: 100%;
+			img {
+				width: 25px;
+				height: 25px;
+				margin: 5px;
+				border-radius: 3px;
+			}
+		}
+		.details {
+			display: inline-block;
+			width: auto;
+		}
 	}
 }
