@@ -15,6 +15,12 @@ define(['jquery'], function ($) {
             });
             return o;
         };
+        $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+            var value = $.cookie('private_token');
+            if (value) {
+                jqXHR.setRequestHeader("Private-Token", value);
+            }
+        });
     };
     return {setup:setupHelper};
 });
