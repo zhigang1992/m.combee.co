@@ -1,5 +1,8 @@
-<% _.each(receipts, function(receipt) { %>
-	<div class="receipt">
-		<span><%= receipt.get('post').title %></span>
-	</div>
-<%	}); %>
+<div class="receipts">
+	<% _.each(receipts, function(receipt) { %>
+		<div class="receipt">
+			<span><img src="<%= receipt.mobileAvatar() %>" alt=""></span>
+			<span><%= receipt.title() %></span>
+		</div>
+	<%	}); %>	
+</div>
