@@ -25,6 +25,6 @@ require.config({
 });
 
 require(['app', 'helper'], function (App, Helper) {
-    App.initialize();
     Helper.setup();
+    App.initialize();
 });
