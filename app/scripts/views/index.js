@@ -1,10 +1,15 @@
-define(['backbone', 'collections/receipts', 'text!templates/receipts.html'], function(Backbone, Receipts, Template) {
+define([
+	'backbone', 
+	'collections/receipts', 
+	'text!templates/receipts.html',
+	'helpers/loginManager'
+], function(Backbone, Receipts, Template, loginManager) {
 	var IndexView = Backbone.View.extend({
 		initialize: function() {
 			this.receipts = new Receipts();
 		},
 		render: function() {
-			if ($.cookie('private_token') == undefined) {
+			if (!loginManager.loggedIn()) {
 				Backbone.history.navigate('#login', true);
 			} else {
 				var view = this;

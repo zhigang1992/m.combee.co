@@ -2,8 +2,9 @@ define([
     'backbone',
     'text!templates/login.html',
     'models/user',
-    'jquery-cookie'
-], function (Backbone, loginTemplate, User, jqueryCookie) {
+    'jquery-cookie',
+    'helpers/loginManager'
+], function (Backbone, loginTemplate, User, jqueryCookie, loginManager) {
     var LoginView = Backbone.View.extend({
         events: {
             "click .sign-in": "loginUser"
@@ -21,9 +22,7 @@ define([
             var view = this;
             user.save(form.serializeObject(), {
                 success: function(user) {
-                    $.cookie('private_token', user.get('private_token'));
-                    $.cookie('user_id', user.get('id'));
-                    $.cookie('user_avatar', user.get('avatar'));
+                    loginManager.loginUser(user);
                     Backbone.history.navigate('#', true);
                 },
                 error: function(user) {
@@ -34,7 +33,7 @@ define([
             return false;
         },
         render: function (){
-            if ($.cookie('private_token')) {
+            if (loginManager.loggedIn()) {
                 Backbone.history.navigate('#', true);
             } else {
                 var template = _.template(loginTemplate, {});

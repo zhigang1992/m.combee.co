@@ -1,4 +1,9 @@
-define(['jquery', 'moment', 'moment-sc'], function ($, moment, momentSC) {
+define([
+    'jquery',
+    'moment', 
+    'moment-sc', 
+    'helpers/loginManager'
+    ], function ($, moment, momentSC, loginManager) {
     var setupHelper = function (){
         $.fn.serializeObject = function() {
             var o = {};
@@ -16,9 +21,8 @@ define(['jquery', 'moment', 'moment-sc'], function ($, moment, momentSC) {
             return o;
         };
         $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-            var value = $.cookie('private_token');
-            if (value) {
-                jqXHR.setRequestHeader("Private-Token", value);
+            if (loginManager.loggedIn()) {
+                jqXHR.setRequestHeader("Private-Token", loginManager.privateToken());
             }
         });
         moment.lang('zh-cn');
