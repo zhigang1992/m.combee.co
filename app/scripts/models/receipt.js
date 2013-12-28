@@ -1,4 +1,4 @@
-define(['backbone', 'moment', 'moment-sc'], function(Backbone, moment, momentSC) {
+define(['backbone', 'moment'], function(Backbone, moment) {
 	var Recipt = Backbone.Model.extend({
 		title: function() {
 			return this.get('post').title;
@@ -15,7 +15,6 @@ define(['backbone', 'moment', 'moment-sc'], function(Backbone, moment, momentSC)
 			return es.join('/');
 		},
 		postDate: function() {
-			moment.lang('zh-cn');
 			return moment(this.get('post').created_at).fromNow();
 		}
 	});

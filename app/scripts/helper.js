@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['jquery', 'moment', 'moment-sc'], function ($, moment, momentSC) {
     var setupHelper = function (){
         $.fn.serializeObject = function() {
             var o = {};
@@ -21,6 +21,7 @@ define(['jquery'], function ($) {
                 jqXHR.setRequestHeader("Private-Token", value);
             }
         });
+        moment.lang('zh-cn');
     };
     return {setup:setupHelper};
 });
