@@ -1,7 +1,6 @@
 .receipts {
 	.receipt {
-		background-color: #fff;
-		border-bottom: 1px solid #E2E2E2;
+		border-bottom: 1px solid $gray-background;
 		position: relative;
 		.avatar {
 			position: absolute;
@@ -17,37 +16,43 @@
 		.details {
 			padding: 5px 20px 5px 35px;
 			.receipt-header {
-				font-size: 12px;
+				font-size: 10px;
 				margin: 3px 0px;
 
 				.author {
-					background-color: #f5f5f5;
+					background-color: $fade-light;
 					border-radius: 2px;
 					padding: 3px 5px;
-					color: #999999;
+					font-weight: 1.03em;
+					color: $gray;
 				}
 				.title {
 					margin-left: 2px;
-					color: #7a8289;
-					font-weight: 1.02em;
+					color: $gray-dark;
+					font-size: 11px;
+					font-weight: 1.04em;
 					&:before {
-						color: #999999;
+						color: $fade;
 						content: "・";
 					}
 				}
 			}
 			.receipt-body {
+				margin: 5px 0;
 				a {
-					color: #778087;
+					font-size: 16px;
+					line-height: 20px;
+					color: $gray-light;
+					text-shadow: #FFFFFF 0px 1px 0px;
 				}
 			}
 			.receipt-footer {
-				font-size: 12px;
+				font-size: 11px;
 				.post-date {
-					color: #cccccc;
+					color: $fade;
 				}
 				.originazation {
-					color: #7a8289;
+					color: $gray-dark;
 					&:before {
 						content: "・";
 					}
