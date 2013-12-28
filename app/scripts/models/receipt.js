@@ -12,7 +12,7 @@ define(['backbone', 'moment'], function(Backbone, moment) {
 		},
 		mobileAvatar: function() {
 			var es = this.avatar().split('/');
-			es[es.length-1] = 'mobile_' + es[es.length-1];
+			es[es.length-1] = 'small_' + es[es.length-1];
 			return es.join('/');
 		},
 		createdAt: function() {
@@ -22,7 +22,7 @@ define(['backbone', 'moment'], function(Backbone, moment) {
 			return moment(this.createdAt()).fromNow();
 		},
 		postDateDetailed: function() {
-			return moment(this.createdAt()).format('LLLL');
+			return moment(this.createdAt()).format('LLL');
 		}
 	});
 	return Recipt;

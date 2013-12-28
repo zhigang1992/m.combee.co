@@ -1,6 +1,8 @@
 .post {
 	.post-header {
 		position: relative;
+		padding: 5px 36+5*3px 5px 5px;
+
 		.avatar {
 			position: absolute;
 			right: 5px;
@@ -13,8 +15,35 @@
 		}
 		.info {
 			.organizations {
+				margin-bottom: 10px;					
 				
+				a {
+					color: $gray-dark;
+					font-size: 14px;
+				}
+				&:before {
+					color: $gray;
+					content: "・";
+				}
+				&:first-child:before {
+					content: "";
+				}
+			}
+			.title {
+				margin-top: 5px;
+				margin-bottom: 15px;
+				font-size: 18px;
+				color: #000000;
+			}
+			.post-date {
+				color: $gray;
 			}
 		}
+	}
+	.post-body {
+
+	}
+	.post-footer {
+
 	}
 }
