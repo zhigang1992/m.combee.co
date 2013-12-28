@@ -3,23 +3,27 @@ define(['backbone', 'views/login', 'views/index'], function (Backbone, LoginView
         routes: {
             '': 'index',
             'login': 'showLogin',
+            'posts/:id': 'showPost',
             '*action': 'defaultAction'
         }
     });
 
     var initialize = function (){
         var appRouter = new AppRouter();
+        var indexView = new IndexView({
+            el: $("#content")
+        });
         appRouter.on("route:index", function (){
-            var indexView = new IndexView({
-                el: $(".content")
-            });
             indexView.render();
         });
+        var loginView = new LoginView({
+            el: $("#content")
+        });
         appRouter.on("route:showLogin", function (){
-            var loginView = new LoginView({
-                el: $(".content")
-            });
             loginView.render();
+        });
+        appRouter.on("route:showPost", function(id){
+            console.log(id);
         });
         appRouter.on("route:defaultAction", function (){
             appRouter.navigate("/login");

@@ -10,13 +10,11 @@ define([
             "click .sign-in": "loginUser"
         },
         initialize: function() {
-            this.$login = $('<div class="login"></div>');
-            this.$el.append(this.$login);
             this.render();
         },
         loginUser: function (ev){
             ev.currentTarget.disabled = true;
-            var form = this.$login.find(".user-login-form")
+            var form = this.$el.find(".user-login-form")
             var user = new User();
             user.url = '/api/v1/session';
             var view = this;
@@ -36,8 +34,10 @@ define([
             if (loginManager.loggedIn()) {
                 Backbone.history.navigate('#', {trigger: true});
             } else {
+                this.$el.removeClass();
+                this.$el.addClass('login');
                 var template = _.template(loginTemplate, {});
-                this.$login.html(template);                
+                this.$el.html(template);                
             }
         }
     });

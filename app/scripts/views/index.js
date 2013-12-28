@@ -12,8 +12,10 @@ define([
 		},
 		render: function() {
 			if (!loginManager.loggedIn()) {
-				Backbone.history.navigate('#', {trigger: true});
+				Backbone.history.navigate('login', {trigger: true});
 			} else {
+				this.$el.removeClass();
+				this.$el.addClass('receipts');
 				var view = this;
 				this.receipts.fetch({
 					success: function(receipts) {

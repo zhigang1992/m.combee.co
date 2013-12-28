@@ -1,32 +1,29 @@
+<% _.each(receipts, function(receipt) { %>
 
-<div class="receipts">
-	<% _.each(receipts, function(receipt) { %>
-
-		<div class="receipt">
-			<a href="#user/<%= receipt.author().id %>" class="avatar">
-				<img src="<%= receipt.mobileAvatar() %>" alt="">
-			</a>
-			<div class="details">
-				<div class="receipt-header">
-					<a href="#user/<%= receipt.author().id %>" class="author">
-						<%= receipt.author().name %>
+	<div class="receipt">
+		<a href="#user/<%= receipt.author().id %>" class="avatar">
+			<img src="<%= receipt.mobileAvatar() %>" alt="">
+		</a>
+		<div class="details">
+			<div class="receipt-header">
+				<a href="#user/<%= receipt.author().id %>" class="author">
+					<%= receipt.author().name %>
+				</a>
+				<span class="title"> <%= receipt.title() %> </span>
+			</div>
+			<div class="receipt-body">
+				<a href="#posts/<%= receipt.get('post').id %>">
+					<%= receipt.get('post').body %>
+				</a>
+			</div>
+			<div class="receipt-footer">
+				<span class="post-date"><%= receipt.postDate() %></span>
+				<% _.each(receipt.get('organizations'), function(orga) { %>
+					<a class="originazation" href="#organizations/<%= orga.id %>">
+						<%= orga.name %>
 					</a>
-					<span class="title"> <%= receipt.title() %> </span>
-				</div>
-				<div class="receipt-body">
-					<a href="#post/<%= receipt.get('post').id %>">
-						<%= receipt.get('post').body %>
-					</a>
-				</div>
-				<div class="receipt-footer">
-					<span class="post-date"><%= receipt.postDate() %></span>
-					<% _.each(receipt.get('organizations'), function(orga) { %>
-						<a class="originazation" href="#organizations/<%= orga.id %>">
-							<%= orga.name %>
-						</a>
-					<%	}); %>	
-				</div>
+				<%	}); %>	
 			</div>
 		</div>
-	<%	}); %>	
-</div>
+	</div>
+<%	}); %>	
