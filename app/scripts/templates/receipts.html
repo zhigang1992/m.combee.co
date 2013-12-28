@@ -17,6 +17,7 @@
 					<%= receipt.get('post').body %>
 				</div>
 				<div class="receipt-footer">
+					<span class="post-date"><%= receipt.postDate() %></span>
 					<% _.each(receipt.get('organizations'), function(orga) { %>
 						<a class="originazation" href="#organizations/<%= orga.id %>">
 							<%= orga.name %>

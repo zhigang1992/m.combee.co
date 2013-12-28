@@ -30,7 +30,7 @@
 				}
 				.title {
 					margin-left: 2px;
-					color: #778087;
+					color: #7a8289;
 					font-weight: 1.02em;
 					&:before {
 						color: #999999;
@@ -42,9 +42,12 @@
 				color: #778087;
 			}
 			.receipt-footer {
-				.originazation {
+				font-size: 12px;
+				.post-date {
 					color: #cccccc;
-					font-size: 12px;
+				}
+				.originazation {
+					color: #7a8289;
 					&:before {
 						content: "・";
 					}
