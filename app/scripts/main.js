@@ -21,7 +21,8 @@ require.config({
         'backbone': '../bower_components/backbone/backbone',
         'text': '../bower_components/requirejs-text/text',
         'jquery-cookie': '../bower_components/jquery-cookie/jquery.cookie',
-        "moment": "../bower_components/momentjs/moment"
+        "moment": "../bower_components/momentjs/moment",
+        "moment-sc": "../bower_components/momentjs/lang/zh-cn"
     }
 });
 
