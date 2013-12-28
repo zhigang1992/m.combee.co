@@ -23,7 +23,7 @@ define([
             user.save(form.serializeObject(), {
                 success: function(user) {
                     loginManager.loginUser(user);
-                    Backbone.history.navigate('#', true);
+                    Backbone.history.navigate('#', {trigger: true});
                 },
                 error: function(user) {
                     ev.currentTarget.disabled = false;
@@ -34,7 +34,7 @@ define([
         },
         render: function (){
             if (loginManager.loggedIn()) {
-                Backbone.history.navigate('#', true);
+                Backbone.history.navigate('#', {trigger: true});
             } else {
                 var template = _.template(loginTemplate, {});
                 this.$login.html(template);                

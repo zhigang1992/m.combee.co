@@ -2,15 +2,17 @@ define([
 	'backbone', 
 	'collections/receipts', 
 	'text!templates/receipts.html',
-	'helpers/loginManager'
-], function(Backbone, Receipts, Template, loginManager) {
+	'helpers/loginManager',
+	'helpers/events'
+], function(Backbone, Receipts, Template, loginManager, events) {
 	var IndexView = Backbone.View.extend({
 		initialize: function() {
 			this.receipts = new Receipts();
+			this.listenTo(events, events.loginUpdateKey, this.render);
 		},
 		render: function() {
 			if (!loginManager.loggedIn()) {
-				Backbone.history.navigate('#login', true);
+				Backbone.history.navigate('#', {trigger: true});
 			} else {
 				var view = this;
 				this.receipts.fetch({
