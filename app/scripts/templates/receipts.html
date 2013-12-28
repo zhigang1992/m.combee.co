@@ -6,9 +6,9 @@
 			<a href="#user/<%= receipt.author().id %>" class="avatar">
 				<img src="<%= receipt.mobileAvatar() %>" alt="">
 			</a>
-			<span class="details">
-				<div>
-					<a href="#user/<%= receipt.author().id %>">
+			<div class="details">
+				<div class="receipt-title">
+					<a href="#user/<%= receipt.author().id %>" class="author">
 						<%= receipt.author().name %>
 					</a>
 					<span class="title"> <%= receipt.title() %> </span>
@@ -23,7 +23,7 @@
 						</a>
 					<%	}); %>	
 				</div>
-			</span>
+			</div>
 		</div>
 	<%	}); %>	
 </div>

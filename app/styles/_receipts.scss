@@ -4,21 +4,42 @@
 	.receipt {
 		background-color: #fff;
 		border-bottom: 1px solid #E2E2E2;
+		position: relative;
 		.avatar {
-			display: inline-block;
+			position: absolute;
 			width: 35px;
-			vertical-align: top;
-			height: 100%;
+			top: 5px;
+			left: 5px;
 			img {
 				width: 25px;
 				height: 25px;
-				margin: 5px;
 				border-radius: 3px;
 			}
 		}
 		.details {
-			display: inline-block;
-			width: auto;
+			padding: 5px 20px 5px 35px;
+			.receipt-title {
+				font-size: 12px;
+				margin: 5px 0px;
+				.author {
+					background-color: #f5f5f5;
+					border-radius: 2px;
+					padding: 5px;
+					color: #999999;
+				}
+				.title {
+					margin-left: 2px;
+					color: #7d868d;
+
+					&:before {
+						color: #999999;
+						content: "・";
+					}
+				}
+			}
+			.receipt-body {
+				
+			}
 		}
 	}
 }
