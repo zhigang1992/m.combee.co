@@ -1,4 +1,4 @@
-define(['backbone', 'models/receipt', 'text!templates/post.html'], function(Backbone, Receipt, Template) {
+define(['backbone', 'models/receipt', 'text!templates/post.html', 'models/attachment'], function(Backbone, Receipt, Template, Attachment) {
 	var PostView = Backbone.View.extend({
 		render: function(options) {
 			var view = this;
@@ -9,7 +9,7 @@ define(['backbone', 'models/receipt', 'text!templates/post.html'], function(Back
 				success: function(receipt) {
 					view.$el.removeClass();
 					view.$el.addClass('post');
-					view.$el.html(_.template(Template, {receipt: receipt}));
+					view.$el.html(_.template(Template, {receipt: receipt, Attachment: Attachment}));
 				}
 			});
 		}

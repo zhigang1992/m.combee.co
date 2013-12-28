@@ -23,6 +23,12 @@ define(['backbone', 'moment'], function(Backbone, moment) {
 		},
 		postDateDetailed: function() {
 			return moment(this.createdAt()).format('LLL');
+		},
+		attachments: function() {
+			return this.get("post").attachments;
+		},
+		hasAttachments: function() {
+			return this.attachments().length > 0;
 		}
 	});
 	return Recipt;

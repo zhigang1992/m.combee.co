@@ -19,7 +19,18 @@
 	</div>
 </div>
 <div class="post-body">
-	
+	<%= receipt.get("post").body_html %>
+	<% if (receipt.hasAttachments()) { %>
+		<% _.each(receipt.attachments(), function(attachment) { %>
+			<a href="<%= Attachment.authorizedURL(attachment) %>">
+				<% if (attachment.image) {%>
+					<img src="<%= Attachment.imageThumbnailURL(attachment) %>" alt="<%= attachment.file_name %>">
+				<% } else { %> 
+					<%= attachment.file_name %>
+				<% } %>
+			</a>
+		<%	}); %>
+	<% } %>
 </div>
 <div class="post-footer">
 	
