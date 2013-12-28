@@ -14,6 +14,7 @@ define([
             this.render();
         },
         loginUser: function (ev){
+            ev.currentTarget.disabled = true;
             var form = this.$login.find(".user-login-form")
             var user = new User();
             user.url = '/api/v1/session';
@@ -24,6 +25,10 @@ define([
                     $.cookie('user_id', user.get('id'));
                     $.cookie('user_avatar', user.get('avatar'));
                     Backbone.history.navigate('#', true);
+                },
+                error: function(user) {
+                    ev.currentTarget.disabled = false;
+                    alert("Wrong");
                 }
             })
             return false;
