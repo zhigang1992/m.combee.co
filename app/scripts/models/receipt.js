@@ -1,5 +1,6 @@
 define(['backbone', 'moment'], function(Backbone, moment) {
 	var Recipt = Backbone.Model.extend({
+		urlRoot: '/api/v1/receipts',
 		title: function() {
 			return this.get('post').title;
 		},
