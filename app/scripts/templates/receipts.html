@@ -7,7 +7,7 @@
 				<img src="<%= receipt.mobileAvatar() %>" alt="">
 			</a>
 			<div class="details">
-				<div class="receipt-title">
+				<div class="receipt-header">
 					<a href="#user/<%= receipt.author().id %>" class="author">
 						<%= receipt.author().name %>
 					</a>
@@ -16,7 +16,7 @@
 				<div class="receipt-body">
 					<%= receipt.get('post').body %>
 				</div>
-				<div>
+				<div class="receipt-footer">
 					<% _.each(receipt.get('organizations'), function(orga) { %>
 						<a class="originazation" href="#organizations/<%= orga.id %>">
 							<%= orga.name %>
