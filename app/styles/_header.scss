@@ -1,0 +1,30 @@
+#header {
+	height: 45px;
+	background-color: #FFF;
+
+	.log {
+		padding-left: 5px;
+		color: black;
+		font-size: 30px;
+		font-weight: bold;
+	}
+
+	.user-button-container {
+		@include clearfix;
+		line-height: 45px;
+		float: right;
+		a {
+			margin-right: 10px;
+			font-size: 24px;
+			color: #565656;
+			img {
+				height: 24px;
+				width: 24px;
+				border-radius: 12px;
+			}
+			&>* {
+				vertical-align: text-top;
+			}
+		}
+	}
+}
