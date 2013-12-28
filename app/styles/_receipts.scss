@@ -39,7 +39,9 @@
 				}
 			}
 			.receipt-body {
-				color: #778087;
+				a {
+					color: #778087;
+				}
 			}
 			.receipt-footer {
 				font-size: 12px;

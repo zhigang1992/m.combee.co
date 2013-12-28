@@ -14,7 +14,9 @@
 					<span class="title"> <%= receipt.title() %> </span>
 				</div>
 				<div class="receipt-body">
-					<%= receipt.get('post').body %>
+					<a href="#post/<%= receipt.get('post').id %>">
+						<%= receipt.get('post').body %>
+					</a>
 				</div>
 				<div class="receipt-footer">
 					<span class="post-date"><%= receipt.postDate() %></span>
