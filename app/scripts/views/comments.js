@@ -11,8 +11,7 @@ define([
 			var view = this;
 			comments.fetch({
 				success: function(comments) {
-				console.log(comments);
-					view.$el.html(_.template(Template, {}));
+					view.$el.html(_.template(Template, {comments: comments.models}));
 				}
 			});
 		}
