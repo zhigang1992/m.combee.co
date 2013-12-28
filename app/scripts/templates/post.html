@@ -1,1 +1,26 @@
-<%= receipt.get('post').title %>
+<div class="post-header">
+	<a href="users/<%= receipt.author().id %>" class="avatar">
+		<img src="<%= receipt.mobileAvatar() %>" alt="<%= receipt.author().name %>">
+	</a>
+	<div class="info">
+		<div class="organizations">
+			<% _.each(receipt.get('organizations'), function(orga) { %>
+				<a href="#organizations/<%= orga.id %>">
+					<%= orga.name %>
+				</a>
+			<%	}); %>
+		</div>
+		<div class="title">
+			 <%= receipt.title() %> 
+		</div>
+		<div class="post-date">
+			<%= receipt.postDateDetailed() %>
+		</div>
+	</div>
+</div>
+<div class="post-body">
+	
+</div>
+<div class="post-footer">
+	
+</div>

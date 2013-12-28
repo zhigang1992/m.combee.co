@@ -7,6 +7,8 @@ define(['backbone', 'models/receipt', 'text!templates/post.html'], function(Back
 			});
 			receipt.fetch({
 				success: function(receipt) {
+					view.$el.removeClass();
+					view.$el.addClass('post');
 					view.$el.html(_.template(Template, {receipt: receipt}));
 				}
 			});

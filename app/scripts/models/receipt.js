@@ -15,8 +15,14 @@ define(['backbone', 'moment'], function(Backbone, moment) {
 			es[es.length-1] = 'mobile_' + es[es.length-1];
 			return es.join('/');
 		},
+		createdAt: function() {
+			return this.get('post').created_at;
+		},
 		postDate: function() {
-			return moment(this.get('post').created_at).fromNow();
+			return moment(this.createdAt()).fromNow();
+		},
+		postDateDetailed: function() {
+			return moment(this.createdAt()).format('LLLL');
 		}
 	});
 	return Recipt;
