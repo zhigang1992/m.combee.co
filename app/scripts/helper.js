@@ -1,4 +1,4 @@
-define(['jquery'], function ($) {
+define(['jquery', 'moment', 'moment-sc'], function ($, moment, momentSC) {
     var setupHelper = function (){
         $.fn.serializeObject = function() {
             var o = {};
@@ -15,6 +15,13 @@ define(['jquery'], function ($) {
             });
             return o;
         };
+        $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+            var value = $.cookie('private_token');
+            if (value) {
+                jqXHR.setRequestHeader("Private-Token", value);
+            }
+        });
+        moment.lang('zh-cn');
     };
     return {setup:setupHelper};
 });

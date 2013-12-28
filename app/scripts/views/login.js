@@ -5,15 +5,16 @@ define([
     'jquery-cookie'
 ], function (Backbone, loginTemplate, User, jqueryCookie) {
     var LoginView = Backbone.View.extend({
-        el: $(".content"),
         events: {
             "click .sign-in": "loginUser"
         },
         initialize: function() {
             this.$login = $('<div class="login"></div>');
             this.$el.append(this.$login);
+            this.render();
         },
         loginUser: function (ev){
+            ev.currentTarget.disabled = true;
             var form = this.$login.find(".user-login-form")
             var user = new User();
             user.url = '/api/v1/session';
@@ -22,14 +23,23 @@ define([
                 success: function(user) {
                     $.cookie('private_token', user.get('private_token'));
                     $.cookie('user_id', user.get('id'));
-                    Backbone.history.navigate('', true);
+                    $.cookie('user_avatar', user.get('avatar'));
+                    Backbone.history.navigate('#', true);
+                },
+                error: function(user) {
+                    ev.currentTarget.disabled = false;
+                    alert("Wrong");
                 }
             })
             return false;
         },
         render: function (){
-            var template = _.template(loginTemplate, {});
-            this.$login.html(template);
+            if ($.cookie('private_token')) {
+                Backbone.history.navigate('#', true);
+            } else {
+                var template = _.template(loginTemplate, {});
+                this.$login.html(template);                
+            }
         }
     });
     return LoginView;
