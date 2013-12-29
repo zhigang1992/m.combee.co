@@ -9,10 +9,6 @@ require.config({
                 'jquery'
             ],
             exports: 'Backbone'
-        },
-        bootstrap: {
-            deps: ['jquery'],
-            exports: 'bootstrap'
         }
     },
     paths: {

@@ -50,6 +50,8 @@
 		border-bottom: 1px solid $gray-background;
 		padding: 7px 5px;
 		font-size: 14px;
+		word-wrap: break-word;
+		word-break: break-all;
 
 		img {
 			width: 100%;
