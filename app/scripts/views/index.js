@@ -33,7 +33,8 @@ define([
 				this.receipts.fetch({
 					reset: true,
 					data: {
-						page: this.currentPage
+						page: this.currentPage,
+						per_page: 10
 					},
 					success: function(receipts) {
 						view.$el.html(_.template(Template, {

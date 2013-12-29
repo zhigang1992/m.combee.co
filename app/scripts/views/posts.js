@@ -14,6 +14,12 @@ define([
 			this.$el.append(this.$comment);
 			this.$commentCompose = $("<div class='comment-composes'></div>");
 			this.$el.append(this.$commentCompose);
+			this.commentView = new CommentsView({
+				el: this.$comment
+			});
+			this.commentComposeView = new CommentComposeView({
+				el: this.$commentCompose
+			});
 		},
 		render: function(options) {
 			var view = this;
@@ -33,9 +39,6 @@ define([
 			});
 		},
 		setupCommentView: function() {
-			this.commentView = new CommentsView({
-				el: this.$comment
-			});
 			var view = this;
 			this.commentView.render({
 				postID: this.postID,
@@ -45,9 +48,6 @@ define([
 			});
 		},
 		setupCommentComposeView: function() {
-			this.commentComposeView = new CommentComposeView({
-				el: this.$commentCompose
-			});
 			var view = this;
 			this.commentComposeView.render({
 				postID: this.postID,
