@@ -43,6 +43,7 @@ define([
 			});
 		},
 		refreshComment: function() {
+			this.currentPage = 1;
 			this.fetchComments();
 		}
 	});
