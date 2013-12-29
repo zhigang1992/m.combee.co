@@ -1,0 +1,81 @@
+.receipts {
+	@include clearfix;
+	.page-number {
+		text-align: center;
+		font-size: 18px;
+		line-height: 40px;
+	}
+	.next-page, .pre-page {
+		margin: 5px;
+	}
+	.next-page {
+		float: right;
+	}
+	.pre-page {
+		float: left;
+	}
+	.receipt {
+		border-bottom: 1px solid $gray-background;
+		position: relative;
+		.avatar {
+			position: absolute;
+			width: 35px;
+			top: 5px;
+			left: 5px;
+			img {
+				width: 25px;
+				height: 25px;
+				border-radius: 3px;
+			}
+		}
+		.details {
+			padding: 5px 20px 5px 35px;
+			.receipt-header {
+				font-size: 10px;
+				margin: 3px 0px;
+
+				.author {
+					background-color: $fade-light;
+					border-radius: 2px;
+					padding: 3px 5px;
+					font-weight: 1.03em;
+					color: $gray;
+				}
+				.title {
+					margin-left: 2px;
+					color: $gray-dark;
+					font-size: 11px;
+					font-weight: 1.04em;
+					&:before {
+						color: $fade;
+						content: "・";
+					}
+				}
+			}
+			.receipt-body {
+				margin: 5px 0;
+				a {
+					font-size: 16px;
+					line-height: 20px;
+					color: $gray-light;
+					text-shadow: #FFFFFF 0px 1px 0px;
+				}
+			}
+			.receipt-footer {
+				font-size: 11px;
+				.post-date {
+					color: $fade;
+				}
+				.originazation {
+					color: $gray-dark;
+					&:before {
+						content: "・";
+					}
+					&:first-child:before {
+						content: "";
+					}
+				}
+			}
+		}
+	}
+}

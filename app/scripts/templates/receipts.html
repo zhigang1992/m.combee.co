@@ -1,5 +1,43 @@
 <% _.each(receipts, function(receipt) { %>
+
 	<div class="receipt">
-		<span><%= receipt.get('post').title %></span>
+		<a href="#user/<%= receipt.author().id %>" class="avatar">
+			<img src="<%= receipt.mobileAvatar() %>" alt="">
+		</a>
+		<div class="details">
+			<div class="receipt-header">
+				<a href="#user/<%= receipt.author().id %>" class="author">
+					<%= receipt.author().name %>
+				</a>
+				<span class="title">
+					 <%= receipt.title() %> 
+				</span>
+			</div>
+			<div class="receipt-body">
+				<a href="#posts/<%= receipt.id %>">
+					<%= receipt.get('post').body %>
+				</a>
+			</div>
+			<div class="receipt-footer">
+				<span class="post-date"><%= receipt.postDate() %></span>
+				<% _.each(receipt.get('organizations'), function(orga) { %>
+					<a class="originazation" href="#organizations/<%= orga.id %>">
+						<%= orga.name %>
+					</a>
+				<%	}); %>	
+			</div>
+		</div>
 	</div>
 <%	}); %>
+
+<% if (currentPage > 1) { %>
+	<button class="btn btn-default pre-page">上一页</button>
+<% } %>
+
+<% if (receipts.length == 10) { %>
+	<button class="btn btn-primary next-page">下一页</button>
+<% } %>
+
+<% if (currentPage >1 && receipts.length == 10) { %>
+	<div class="page-number">第<%= currentPage %>页</div>
+<% } %>

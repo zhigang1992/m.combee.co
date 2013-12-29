@@ -1,4 +1,9 @@
-define(['jquery'], function ($) {
+define([
+    'jquery',
+    'moment', 
+    'moment-sc', 
+    'helpers/loginManager'
+    ], function ($, moment, momentSC, loginManager) {
     var setupHelper = function (){
         $.fn.serializeObject = function() {
             var o = {};
@@ -15,6 +20,12 @@ define(['jquery'], function ($) {
             });
             return o;
         };
+        $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+            if (loginManager.loggedIn()) {
+                jqXHR.setRequestHeader("Private-Token", loginManager.privateToken());
+            }
+        });
+        moment.lang('zh-cn');
     };
     return {setup:setupHelper};
 });

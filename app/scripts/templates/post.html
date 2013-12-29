@@ -1,0 +1,38 @@
+<div class="post-header">
+	<a href="users/<%= receipt.author().id %>" class="avatar">
+		<img src="<%= receipt.mobileAvatar() %>" alt="<%= receipt.author().name %>">
+	</a>
+	<div class="info">
+		<div class="organizations">
+			<% _.each(receipt.get('organizations'), function(orga) { %>
+				<a href="#organizations/<%= orga.id %>">
+					<%= orga.name %>
+				</a>
+			<%	}); %>
+		</div>
+		<div class="title">
+			 <%= receipt.title() %> 
+		</div>
+		<div class="post-date">
+			<%= receipt.postDateDetailed() %>
+		</div>
+	</div>
+</div>
+<div class="post-body">
+	<%= receipt.get("post").body_html %>
+	<% if (receipt.hasAttachments()) { %>
+		<div class="attachments">
+			<% _.each(receipt.attachments(), function(attachment) { %>
+				<a href="<%= Attachment.authorizedURL(attachment) %>">
+					<% if (attachment.image) {%>
+						<img src="<%= Attachment.imageThumbnailURL(attachment) %>" alt="<%= attachment.file_name %>">
+					<% } else { %> 
+						<%= attachment.file_name %>
+					<% } %>
+				</a>
+			<%	}); %>
+		</div>
+	<% } %>
+</div>
+<div class="post-footer">
+</div>

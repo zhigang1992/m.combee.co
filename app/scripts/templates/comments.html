@@ -1,0 +1,33 @@
+<% _.each(comments, function(comment) { %>
+	
+	<div class="comment">
+		<a href="#user/<%= comment.get('user').id %>" class="avatar">
+			<img src="<%= comment.mobileAvatar() %>" alt="">
+		</a>
+
+		<div class="details">
+			<div class="comment-header">
+				<a href="#user/<%= comment.get('user').id %>" class="author">
+					<%= comment.get('user').name %>
+				</a>
+				<span class="post-date"><%= comment.postDate() %></span>
+			</div>
+			<div class="comment-body">
+				<%= comment.get('body') %>
+			</div>
+		</div>
+	</div>
+<% }); %>
+
+<% if (currentPage > 1) { %>
+	<button class="btn btn-default pre-page-comment">上一页</button>
+<% } %>
+
+<% if (comments.length == 10) { %>
+	<button class="btn btn-primary next-page-comment">下一页</button>
+<% } %>
+
+<% if (currentPage >1 && comments.length == 10) { %>
+	<div class="page-number">第<%= currentPage %>页</div>
+<% } %>
+

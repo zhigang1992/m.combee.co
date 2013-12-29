@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                 files: [
                     '<%= yeoman.app %>/*.html',
                     '.tmp/styles/{,*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
+                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.{js, html}',
                     '<%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
                 ]
             }
@@ -95,6 +95,30 @@ module.exports = function (grunt) {
                 proxies: [
                     {
                         context: '/api/v1',
+                        host: 'combee.co',
+                        port: 80,
+                        https: false,
+                        changeOrigin: true,
+                        xforward: true
+                    },
+                    {
+                        context: '/assets',
+                        host: 'combee.co',
+                        port: 80,
+                        https: false,
+                        changeOrigin: true,
+                        xforward: true
+                    },
+                    {
+                        context: '/uploads',
+                        host: 'combee.co',
+                        port: 80,
+                        https: false,
+                        changeOrigin: true,
+                        xforward: true
+                    },
+                    {
+                        context: '/attachments',
                         host: 'combee.co',
                         port: 80,
                         https: false,

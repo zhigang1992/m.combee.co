@@ -1,0 +1,57 @@
+.post .comments {
+	background-color: #FFFFFF;
+	margin: 5px 0;
+	@include clearfix;
+	.page-number {
+		text-align: center;
+		font-size: 18px;
+		line-height: 40px;
+	}
+	.next-page-comment, .pre-page-comment {
+		margin: 5px;
+	}
+	.next-page-comment {
+		float: right;
+	}
+	.pre-page-comment {
+		float: left;
+	}
+	
+	.comment {
+		border-bottom: 1px solid $gray-background;
+		position: relative;
+
+		.first-child {
+			border: none;
+		}
+
+		.avatar {
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			img {
+				width: 25px;
+				height: 25px;
+				border-radius: 3px;
+			}
+		}
+
+		.details {
+			padding: 5px 20px 5px 35px;
+			.author {
+				font-size: 12px;
+				color: $gray;
+			}
+			.post-date {
+				font-size: 11px;
+				color: $fade;
+			}
+			.comment-body {
+				line-height: 20px;
+				margin: 5px 0;
+			}
+		}
+
+
+	}
+}
