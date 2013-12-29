@@ -19,18 +19,21 @@ define([
             el: $("#content")
         });
         appRouter.on("route:index", function (){
+            $("#content").empty();
             indexView.render();
         });
         var loginView = new LoginView({
             el: $("#content")
         });
         appRouter.on("route:showLogin", function (){
+            $("#content").empty();
             loginView.render();
         });
         var postView = new PostsView({
             el: $("#content")
         });
         appRouter.on("route:showPost", function(id){
+            $("#content").empty();
             postView.render({id: id});
         });
         appRouter.on("route:defaultAction", function (){

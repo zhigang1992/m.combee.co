@@ -1,5 +1,8 @@
 define(['backbone'], function(Backbone) {
 	var Comment = Backbone.Model.extend({
+		initialize: function(options) {
+			this.postID = options.postID;
+		},
 		urlRoot: function() {
 			return '/api/v1/posts/' + this.postID + '/comments';
 		},
@@ -9,7 +12,7 @@ define(['backbone'], function(Backbone) {
 			return es.join('/');
 		},
 		postDate: function() {
-			return moment(this.get('createdAt')).fromNow();
+			return moment(this.get('created_at')).fromNow();
 		}
 	});
 	return Comment;
