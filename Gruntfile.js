@@ -179,7 +179,12 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+                    cssDir: '<%= yeoman.dist %>/styles',
+                    noLineComment: true,
+                    outputStyle: 'compressed',
+                    force: true,
+                    generatedImagesDir: '<%= yeoman.dist %>/images/generated',
+                    environment: 'production'
                 }
             },
             server: {
@@ -350,9 +355,29 @@ module.exports = function (grunt) {
                 'svgmin',
                 'htmlmin'
             ]
+        },
+        requirejs: {
+            options: {
+                name: "main",
+                baseUrl: "<%= yeoman.app %>/scripts",
+                mainConfigFile: "<%= yeoman.app %>/scripts/main.js"
+            },
+            compile: {
+                options: {
+                    out: "<%= yeoman.tmp %>/scripts/main.js"
+                }
+            },
+            dist: {
+                options: {
+                    out: "<%= yeoman.dist %>/scripts/main.js"
+                }
+            }
         }
     });
-
+    grunt.registerTask('dist', [
+        'requirejs:dist',
+        'compass:dist'
+    ]),
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
