@@ -59,6 +59,8 @@
 					line-height: 20px;
 					color: $gray-light;
 					text-shadow: #FFFFFF 0px 1px 0px;
+					word-wrap: break-word;
+					word-break: break-all;
 				}
 			}
 			.receipt-footer {
