@@ -1,4 +1,19 @@
 .receipts {
+	@include clearfix;
+	.page-number {
+		text-align: center;
+		font-size: 18px;
+		line-height: 40px;
+	}
+	.next-page, .pre-page {
+		margin: 5px;
+	}
+	.next-page {
+		float: right;
+	}
+	.pre-page {
+		float: left;
+	}
 	.receipt {
 		border-bottom: 1px solid $gray-background;
 		position: relative;

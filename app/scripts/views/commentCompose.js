@@ -22,6 +22,7 @@ define([
 						message.html("发出去了，yeh...");
 						$('textarea').val('');
 						view.refreshComment();
+						window.scrollTo(0,0);
 					},
 					error: function(comment) {
 						ev.currentTarget.disabled = true;
@@ -30,7 +31,7 @@ define([
 					}
 				})
 			} else {
-				message.addClass(".error");
+				message.addClass("error");
 				message.html("评论不能为空");
 			}
 		},
