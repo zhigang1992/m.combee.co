@@ -2,12 +2,14 @@ define([
     'backbone', 
     'views/login', 
     'views/index',
-    'views/posts'
-], function (Backbone, LoginView, IndexView, PostsView){
+    'views/posts',
+    'helpers/loginManager'
+], function (Backbone, LoginView, IndexView, PostsView, loginManager){
     var AppRouter = Backbone.Router.extend({
         routes: {
             '': 'index',
             'login': 'showLogin',
+            'logout': 'logoutUser',
             'posts/:id': 'showPost',
             '*action': 'defaultAction'
         }
@@ -40,6 +42,11 @@ define([
             appRouter.navigate("/login");
         });
         Backbone.history.start();
+        appRouter.on("route:logoutUser", function() {
+            alert("客官记得下次再来哦");
+            loginManager.logoutUser();
+            Backbone.history.navigate('', {trigger: true});
+        });
     };
 
     return {

@@ -20,6 +20,13 @@ define([
 			avatar: $.cookie('user_avatar')
 		};
 	};
+	var logoutUser = function() {
+		$.cookie('private_token', '');
+		$.cookie('user_id', '');
+		$.cookie('user_name', '');
+		$.cookie('user_avatar', '');
+		Events.trigger(Events.loginUpdateKey, {});
+	};
 	var privateToken = function() {
 		return $.cookie('private_token');
 	};
@@ -27,6 +34,7 @@ define([
 		loginUser: loginUser,
 		loggedIn: loggedIn,
 		loggedInUser: loggedInUser,
-		privateToken: privateToken
+		privateToken: privateToken,
+		logoutUser: logoutUser
 	};
 });
