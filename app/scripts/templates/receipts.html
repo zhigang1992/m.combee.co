@@ -28,4 +28,16 @@
 			</div>
 		</div>
 	</div>
-<%	}); %>	
+<%	}); %>
+
+<% if (currentPage > 1) { %>
+	<button class="btn btn-default pre-page">上一页</button>
+<% } %>
+
+<% if (receipts.length == 10) { %>
+	<button class="btn btn-primary next-page">下一页</button>
+<% } %>
+
+<% if (currentPage >1 && receipts.length == 10) { %>
+	<div class="page-number">第<%= currentPage %>页</div>
+<% } %>
