@@ -1,3 +1,29 @@
+$gray-dark:      	rgb(77, 82, 86);
+$gray:				rgb(153, 153, 153);
+$gray-light:        rgb(119, 128, 135);
+
+$fade-light:		rgb(245, 245, 245);
+$fade:				rgb(204, 204, 204);
+
+$gray-background:   #E2E2E2;
+
+// Scaffolding
+// -------------------------
+
+$body-bg:           $gray-background;
+$text-color:        #000000;
+
+// Typography
+// -------------------------
+
+$font-size-base: 14px;
+
+// Links
+// -------------------------
+
+$link-color:        $gray;
+$link-hover-color:  $gray-dark;
+
 a:hover, a:focus, a:active {
 	text-decoration: none;
 }

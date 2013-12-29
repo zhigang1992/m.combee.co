@@ -116,6 +116,14 @@ module.exports = function (grunt) {
                         https: false,
                         changeOrigin: true,
                         xforward: true
+                    },
+                    {
+                        context: '/attachments',
+                        host: 'combee.co',
+                        port: 80,
+                        https: false,
+                        changeOrigin: true,
+                        xforward: true
                     }
                 ]
             }
